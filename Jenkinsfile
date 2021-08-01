@@ -46,15 +46,6 @@ pipeline {
         sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 3 4"
       }
     }
-    stage("Test on Debian") {
-      agent {
-        docker 'openjdk:8u121-jre'
-      }
-      steps {
-        sh "wget http://18.116.14.24/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
-        sh "java -jar rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar 3 4"
-      }
-    }
     stage('Promote to Green') {
       agent {
         label 'apache'
