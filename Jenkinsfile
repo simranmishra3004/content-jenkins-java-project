@@ -79,6 +79,7 @@ pipeline {
         echo "Checking Out Development Branch"
         sh 'git checkout development'
 	sh 'git fetch'
+	sh ' git remote set-url origin git@github.com:simranmishra3004/content-jenkins-java-project.git'
         echo 'Checking Out Master Branch'
        // sh 'git branch master'
 	sh 'git pull origin master'
